@@ -1,0 +1,61 @@
+:root {
+  /* Ocean Professional Theme Variables (Light) */
+  --color-primary: #2563EB;
+  --color-secondary: #F59E0B;
+  --color-success: #F59E0B;
+  --color-error: #EF4444;
+
+  --bg: #f9fafb;
+  --surface: #ffffff;
+  --text: #111827;
+  --muted: #6B7280;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+
+  --radius: 12px;
+
+  --transition-fast: 150ms ease;
+  --transition-med: 250ms ease;
+
+  --cube-size: 280px;
+  --cube-perspective: 800px;
+  --cube-face-size: calc(var(--cube-size));
+  --cube-explode: 60px;
+
+  --grid-gap: 6px;
+
+  --focus-ring: 0 0 0 3px rgba(37, 99, 235, 0.35);
+
+  /* Gradients */
+  --surface-gradient: linear-gradient(180deg, rgba(59,130,246,0.08), rgba(249,250,251,0.8));
+}
+
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --surface: #111827;
+  --text: #e5e7eb;
+  --muted: #9CA3AF;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.35);
+  --shadow-md: 0 10px 28px rgba(0,0,0,0.45);
+
+  --surface-gradient: linear-gradient(180deg, rgba(59,130,246,0.12), rgba(17,24,39,0.9));
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0ms;
+    --transition-med: 0ms;
+  }
+}
+
+/* Utilities */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}

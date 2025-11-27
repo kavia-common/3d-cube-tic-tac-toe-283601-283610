@@ -1,0 +1,106 @@
+.cube-scene {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  perspective: var(--cube-perspective);
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  min-height: 420px;
+}
+
+.cube {
+  position: relative;
+  width: var(--cube-size);
+  height: var(--cube-size);
+  transform-style: preserve-3d;
+  transition: transform var(--transition-med);
+  cursor: grab;
+}
+
+.cube:active {
+  cursor: grabbing;
+}
+
+.cube-face {
+  position: absolute;
+  top: 0; left: 0;
+  width: var(--cube-face-size);
+  height: var(--cube-face-size);
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--grid-gap);
+  transform-style: preserve-3d;
+  transition: transform var(--transition-med), filter var(--transition-med), opacity var(--transition-med);
+  border-radius: 12px;
+  padding: 8px;
+  background: var(--surface-gradient);
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: var(--shadow-sm);
+}
+
+.cube-face[aria-disabled="true"] {
+  filter: grayscale(0.6) opacity(0.85);
+}
+
+.cell {
+  display: grid;
+  place-items: center;
+  user-select: none;
+  -webkit-user-select: none;
+  background: linear-gradient(180deg, rgba(255,255,255,0.65), rgba(255,255,255,0.4));
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 10px;
+  position: relative;
+  transition: transform var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+[data-theme="dark"] .cell {
+  background: linear-gradient(180deg, rgba(31,41,55,0.65), rgba(31,41,55,0.4));
+}
+
+.cell:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.cell:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.mark {
+  width: 60%;
+  height: 60%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mark svg {
+  width: 100%;
+  height: 100%;
+}
+
+.mark.x svg path {
+  stroke: var(--color-primary);
+  stroke-width: 14;
+  stroke-linecap: round;
+}
+
+.mark.o svg circle {
+  stroke: var(--color-secondary);
+  stroke-width: 14;
+}
+
+.face-label {
+  position: absolute;
+  top: -28px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+}
